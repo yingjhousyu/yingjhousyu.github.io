@@ -18,6 +18,9 @@
     --emerald: #2ec4b6;
     --white: #f8fafc;
     --text-muted: #94a3b8;
+    --font-body: 'Noto Serif TC', serif;
+    --font-display: 'Playfair Display', serif;
+    --font-mono: 'DM Mono', monospace;
   }
 
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -25,15 +28,16 @@
   body {
     background: var(--ocean-deep);
     color: var(--white);
-    font-family: 'Noto Serif TC', serif;
+    font-family: var(--font-body);
     overflow-x: hidden;
+    font-size: 16px;
   }
 
   /* ─── HERO ─── */
   .hero {
     position: relative;
     height: 100vh;
-    min-height: 600px;
+    min-height: 520px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,10 +64,10 @@
     background: linear-gradient(to bottom, rgba(10,22,40,0.3) 0%, rgba(10,22,40,0.8) 100%);
   }
 
-  .hero-content { position: relative; z-index: 2; padding: 2rem; }
+  .hero-content { position: relative; z-index: 2; padding: 1.5rem; }
 
   .hero-date {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--font-mono);
     font-size: .85rem;
     letter-spacing: .25em;
     color: var(--teal-bright);
@@ -73,8 +77,8 @@
   }
 
   .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 6vw, 5.5rem);
     line-height: 1.1;
     color: var(--sand);
     margin-bottom: .5rem;
@@ -82,27 +86,26 @@
   }
 
   .hero-subtitle {
-    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-family: var(--font-body);
+    font-size: clamp(.95rem, 2vw, 1.3rem);
     color: var(--teal-bright);
-    letter-spacing: .1em;
+    letter-spacing: .05em;
     margin-bottom: 2rem;
     opacity: 0; animation: fadeUp .7s .6s forwards;
   }
 
   .hero-tags {
-    display: flex; gap: .7rem; flex-wrap: wrap; justify-content: center;
+    display: flex; gap: .6rem; flex-wrap: wrap; justify-content: center;
     opacity: 0; animation: fadeUp .7s .8s forwards;
   }
 
+  /* Hero tags — 純文字標籤，無按鈕外框 */
   .hero-tag {
-    background: rgba(0,180,216,.2);
-    border: 1px solid var(--teal);
-    color: var(--teal-bright);
-    padding: .35rem .9rem;
-    border-radius: 2rem;
-    font-size: .8rem;
-    font-family: 'DM Mono', monospace;
-    letter-spacing: .08em;
+    color: rgba(248,250,252,.75);
+    font-family: var(--font-body);
+    font-size: .85rem;
+    letter-spacing: .03em;
+    padding: .2rem .5rem;
   }
 
   @keyframes fadeUp {
@@ -110,57 +113,52 @@
     to   { opacity:1; transform: translateY(0); }
   }
 
-  /* ─── WAVE DIVIDER ─── */
-  .wave-divider {
-    line-height: 0;
-    background: var(--ocean-deep);
-  }
-  .wave-divider svg { display: block; width: 100%; }
-
-  /* ─── NAV PILLS ─── */
+  /* ─── NAV PILLS — 按鈕樣式 ─── */
   .nav-pills {
     position: sticky; top: 0; z-index: 50;
-    background: rgba(10,22,40,.92);
+    background: rgba(10,22,40,.95);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(0,180,216,.2);
-    padding: .75rem 1.5rem;
-    display: flex; gap: .5rem; flex-wrap: wrap; justify-content: center;
+    padding: .65rem 1rem;
+    display: flex; gap: .45rem; flex-wrap: wrap; justify-content: center;
   }
 
   .nav-pill {
-    color: var(--text-muted);
+    color: var(--teal-bright);
     text-decoration: none;
-    font-size: .82rem;
-    font-family: 'DM Mono', monospace;
-    letter-spacing: .06em;
-    padding: .3rem .85rem;
+    font-family: var(--font-body);
+    font-size: .8rem;
+    letter-spacing: .03em;
+    padding: .35rem .9rem;
     border-radius: 2rem;
-    border: 1px solid transparent;
-    transition: all .25s;
+    border: 1px solid rgba(0,180,216,.5);
+    background: rgba(0,180,216,.08);
+    transition: all .22s;
+    white-space: nowrap;
   }
   .nav-pill:hover {
-    color: var(--teal-bright);
-    border-color: var(--teal);
-    background: rgba(0,180,216,.1);
+    color: var(--ocean-deep);
+    background: var(--teal-bright);
+    border-color: var(--teal-bright);
   }
 
   /* ─── SECTION BASE ─── */
   .section {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 4rem 1.5rem;
+    padding: 3.5rem 1.5rem;
   }
 
   .section-header {
     display: flex; align-items: center; gap: 1rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
   }
 
-  .section-icon { font-size: 2rem; }
+  .section-icon { font-size: 1.8rem; }
 
   .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
     color: var(--sand);
   }
 
@@ -195,35 +193,38 @@
   .card-body { padding: 1.2rem; }
 
   .card-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: .7rem;
-    letter-spacing: .12em;
+    font-family: var(--font-body);
+    font-size: .72rem;
+    letter-spacing: .08em;
     color: var(--teal);
     text-transform: uppercase;
     margin-bottom: .4rem;
   }
 
   .card-title {
-    font-size: 1.05rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
     font-weight: 600;
     color: var(--sand);
     margin-bottom: .5rem;
+    line-height: 1.4;
   }
 
   .card-desc {
+    font-family: var(--font-body);
     font-size: .85rem;
     color: var(--text-muted);
-    line-height: 1.7;
+    line-height: 1.75;
   }
 
   .card-link {
     display: inline-block;
     margin-top: .8rem;
-    font-size: .78rem;
+    font-family: var(--font-body);
+    font-size: .8rem;
     color: var(--teal-bright);
     text-decoration: none;
-    font-family: 'DM Mono', monospace;
-    letter-spacing: .05em;
+    letter-spacing: .03em;
     border-bottom: 1px solid transparent;
     transition: border-color .2s;
   }
@@ -240,23 +241,26 @@
     background: var(--ocean-mid);
     border: 1px solid rgba(0,180,216,.15);
     border-radius: 1rem;
-    padding: 1.4rem;
+    padding: 1.3rem;
   }
 
   .checklist-box-title {
-    font-size: 1rem;
+    font-family: var(--font-body);
+    font-size: .95rem;
     font-weight: 600;
     color: var(--teal-bright);
-    margin-bottom: 1rem;
+    margin-bottom: .9rem;
     display: flex; align-items: center; gap: .5rem;
+    line-height: 1.4;
   }
 
   .checklist-item {
     display: flex; align-items: flex-start; gap: .6rem;
-    margin-bottom: .55rem;
+    margin-bottom: .5rem;
+    font-family: var(--font-body);
     font-size: .85rem;
     color: var(--white);
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   .check-dot {
@@ -264,28 +268,29 @@
     background: var(--teal);
     border-radius: 50%;
     flex-shrink: 0;
-    margin-top: .45rem;
+    margin-top: .5rem;
   }
 
   /* ─── INFO STRIP ─── */
   .info-strip {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 220px));
     gap: 1rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
+    justify-content: center;
   }
 
   .info-chip {
     background: linear-gradient(135deg, var(--ocean-mid), rgba(0,180,216,.12));
     border: 1px solid rgba(0,180,216,.3);
     border-radius: .8rem;
-    padding: 1.1rem;
+    padding: 1rem;
     text-align: center;
   }
 
   .info-chip-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
+    font-family: var(--font-display);
+    font-size: 1.7rem;
     color: var(--teal-bright);
     display: block;
     line-height: 1;
@@ -293,9 +298,9 @@
   }
 
   .info-chip-label {
+    font-family: var(--font-body);
     font-size: .78rem;
     color: var(--text-muted);
-    letter-spacing: .05em;
   }
 
   /* ─── NOTICE BANNER ─── */
@@ -303,16 +308,17 @@
     background: linear-gradient(135deg, rgba(224,123,84,.15), rgba(224,123,84,.05));
     border: 1px solid rgba(224,123,84,.4);
     border-radius: .8rem;
-    padding: 1.2rem 1.5rem;
-    margin-bottom: 1.2rem;
+    padding: 1.1rem 1.4rem;
+    margin-bottom: 1.1rem;
     display: flex; gap: .8rem; align-items: flex-start;
   }
 
-  .notice-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: .1rem; }
+  .notice-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: .1rem; }
 
   .notice-text {
+    font-family: var(--font-body);
     font-size: .88rem;
-    line-height: 1.7;
+    line-height: 1.75;
     color: var(--sand);
   }
 
@@ -322,8 +328,9 @@
   .info-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: .88rem;
-    margin: 1.2rem 0;
+    font-family: var(--font-body);
+    font-size: .875rem;
+    margin: 1.1rem 0;
   }
 
   .info-table th {
@@ -331,32 +338,30 @@
     color: var(--teal-bright);
     padding: .65rem 1rem;
     text-align: left;
+    font-family: var(--font-body);
+    font-size: .8rem;
     font-weight: 600;
-    font-family: 'DM Mono', monospace;
-    font-size: .78rem;
-    letter-spacing: .08em;
+    letter-spacing: .04em;
   }
 
   .info-table td {
-    padding: .6rem 1rem;
+    padding: .65rem 1rem;
     border-bottom: 1px solid rgba(255,255,255,.06);
     color: var(--white);
     vertical-align: top;
+    font-family: var(--font-body);
+    line-height: 1.7;
   }
 
   .info-table tr:hover td { background: rgba(0,180,216,.05); }
 
   /* ─── TWO-COL ─── */
   .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-  @media(max-width:640px) {
-    .two-col { grid-template-columns: 1fr; }
-    .hero-title { font-size: 2.4rem; }
-  }
 
   /* ─── IMAGE BANNER ─── */
   .img-banner {
     width: 100%;
-    height: 260px;
+    height: 240px;
     object-fit: cover;
     border-radius: 1rem;
     margin-bottom: 1.5rem;
@@ -373,12 +378,12 @@
   /* ─── BADGE ─── */
   .badge {
     display: inline-block;
-    font-family: 'DM Mono', monospace;
-    font-size: .7rem;
-    letter-spacing: .1em;
-    padding: .2rem .6rem;
+    font-family: var(--font-body);
+    font-size: .68rem;
+    letter-spacing: .06em;
+    padding: .15rem .55rem;
     border-radius: 2rem;
-    margin-left: .5rem;
+    margin-left: .4rem;
     vertical-align: middle;
   }
   .badge-green { background: rgba(46,196,182,.2); color: var(--emerald); border: 1px solid var(--emerald); }
@@ -391,8 +396,9 @@
     text-align: center;
     padding: 2.5rem 1.5rem;
     color: var(--text-muted);
+    font-family: var(--font-body);
     font-size: .82rem;
-    line-height: 1.8;
+    line-height: 1.9;
   }
 
   footer a { color: var(--teal); text-decoration: none; }
@@ -400,6 +406,65 @@
 
   /* ─── BG SECTIONS ─── */
   .bg-alt { background: rgba(13,46,82,.4); }
+
+  /* ═══════════════════════════════
+     RWD — 平板 (max 900px)
+  ═══════════════════════════════ */
+  @media (max-width: 900px) {
+    .section { padding: 2.5rem 1.2rem; }
+    .card-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+    .checklist-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+    .info-strip { grid-template-columns: repeat(2, minmax(0, 220px)); justify-content: center; }
+    .two-col { grid-template-columns: 1fr 1fr; }
+    .info-table { font-size: .82rem; }
+    .info-table th, .info-table td { padding: .55rem .75rem; }
+  }
+
+  /* ═══════════════════════════════
+     RWD — 手機 (max 640px)
+  ═══════════════════════════════ */
+  @media (max-width: 640px) {
+    body { font-size: 15px; }
+    .hero-title { font-size: 2.2rem; }
+    .hero-subtitle { font-size: .95rem; }
+    .hero-tag { font-size: .8rem; }
+    .section { padding: 2rem 1rem; }
+    .section-title { font-size: 1.4rem; }
+    .nav-pills { padding: .55rem .75rem; gap: .35rem; }
+    .nav-pill { font-size: .75rem; padding: .3rem .7rem; }
+
+    /* 卡片單欄 */
+    .card-grid { grid-template-columns: 1fr; }
+    .card-img { height: 160px; }
+
+    /* 打包清單兩欄 → 單欄 */
+    .checklist-grid { grid-template-columns: 1fr; }
+
+    /* info-strip 兩欄 */
+    .info-strip { grid-template-columns: repeat(2, minmax(0, 180px)); justify-content: center; }
+    .info-chip-num { font-size: 1.4rem; }
+
+    /* two-col 單欄 */
+    .two-col { grid-template-columns: 1fr; }
+
+    /* 表格橫向捲動 */
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .info-table { min-width: 480px; font-size: .8rem; }
+    .info-table th, .info-table td { padding: .5rem .65rem; }
+
+    .img-banner { height: 180px; }
+    .notice { padding: .9rem 1rem; }
+    .notice-text { font-size: .83rem; }
+  }
+
+  /* ═══════════════════════════════
+     RWD — 超小螢幕 (max 400px)
+  ═══════════════════════════════ */
+  @media (max-width: 400px) {
+    .hero-title { font-size: 1.9rem; }
+    .nav-pill { font-size: .7rem; padding: .28rem .6rem; }
+    .info-strip { grid-template-columns: repeat(2, 1fr); gap: .6rem; }
+  }
 </style>
 </head>
 <body>
@@ -424,6 +489,7 @@
 
 <!-- NAV -->
 <nav class="nav-pills">
+  <a class="nav-pill" href="#overview">📅 行程概覽</a>
   <a class="nav-pill" href="#checklist">📦 打包清單</a>
   <a class="nav-pill" href="#diving">🤿 潛水資訊</a>
   <a class="nav-pill" href="#food">🍜 美食推薦</a>
@@ -467,85 +533,86 @@
 
   <table class="info-table">
     <thead>
-      <tr><th>日期</th><th>參考行程 / 時間 / 潛點</th><th>住宿</th></tr>
+      <tr><th>日期 / 住宿</th><th>參考行程 / 時間 / 潛點</th></tr>
     </thead>
     <tbody>
       <tr>
-        <td>4/3 (五)<br><small style="color:var(--text-muted)">出發夜</small></td>
+        <td>4/3 (五)<br><small style="color:var(--text-muted)">出發夜</small><br><small style="color:var(--teal)">🚢 船宿</small></td>
         <td>
-          16:00–19:30　Transfer to Tablamu Pier<br>
-          20:00　Arrival to Mandarin Queen Liveaboard<br>
-          20:30　Cabin Allocation<br>
-          21:00　Boat Briefing<br>
-          21:30　Dinner
+          16:00–19:30　前往塔普拉穆碼頭（Thap Lamu Pier）<br>
+          20:00　抵達曼達林皇后號（Mandarin Queen Liveaboard）<br>
+          20:30　艙房分配（Cabin Allocation）<br>
+          21:00　船上說明（Boat Briefing）<br>
+          21:30　晚餐
         </td>
-        <td>船宿</td>
       </tr>
       <tr>
-        <td>4/4 (六)<br><small style="color:var(--text-muted)">DAY 1 · 4潛</small></td>
+        <td>4/4 (六)<br><small style="color:var(--text-muted)">第1天 · 4潛</small><br><small style="color:var(--teal)">🚢 船宿</small></td>
         <td>
-          06:30　Morning Call<br>
-          07:30　Dive Briefing<br>
+          06:30　起床號<br>
+          07:30　潛水說明<br>
           08:00　🤿 #1 三棵樹（Thee Tree）<br>
-          09:00　Breakfast<br>
+          09:00　早餐<br>
           11:30　🤿 #2 聖誕點（Christmas Point）<br>
-          12:30　Lunch<br>
+          12:30　午餐<br>
           15:00　🤿 #3 北角（North Point）<br>
-          16:00　Snack<br>
+          16:00　點心<br>
           19:00　🌙 #4 夜潛 — 南柴灣（Ao Nam Chai）<br>
-          20:00　Dinner
+          20:00　晚餐
         </td>
-        <td>船宿</td>
       </tr>
       <tr>
-        <td>4/5 (日)<br><small style="color:var(--text-muted)">DAY 2 · 4潛</small></td>
+        <td>4/5 (日)<br><small style="color:var(--text-muted)">第2天 · 4潛</small><br><small style="color:var(--teal)">🚢 船宿</small></td>
         <td>
-          06:30　Morning Call<br>
-          07:30　Dive Briefing<br>
+          06:30　起床號<br>
+          07:30　潛水說明<br>
           08:00　🤿 #5 象頭岩（Elephant Head Rock）<br>
-          09:00　Breakfast<br>
+          09:00　早餐<br>
           11:30　🤿 #6 夢島（Koh Bon）<br>
-          12:30　Lunch<br>
+          12:30　午餐<br>
           15:00　🤿 #7 塔差尖頂（Tachai Pinnacle）<br>
-          16:00　Snack<br>
+          16:00　點心<br>
           19:00　🌙 #8 夜潛 — 塔差礁（Tachai Reef）<br>
-          20:00　Dinner
+          20:00　晚餐
         </td>
-        <td>船宿</td>
       </tr>
       <tr>
-        <td>4/6 (一)<br><small style="color:var(--text-muted)">DAY 3 · 4潛</small></td>
+        <td>4/6 (一)<br><small style="color:var(--text-muted)">第3天 · 4潛</small><br><small style="color:var(--teal)">🚢 船宿</small></td>
         <td>
-          06:30　Morning Call<br>
-          07:30　Dive Briefing<br>
+          06:30　起床號<br>
+          07:30　潛水說明<br>
           08:00　🤿 #9 黎希留岩（Richelieu Rock）<br>
-          09:00　Breakfast<br>
+          09:00　早餐<br>
           11:30　🤿 #10 黎希留岩（Richelieu Rock）<br>
-          12:30　Lunch<br>
+          12:30　午餐<br>
           15:00　🤿 #11 黎希留岩（Richelieu Rock）<br>
-          16:00　Snack<br>
-          17:30　🌅 #12 日落潛 — 蘇林島（Koh Surin，TBA）<br>
-          20:00　Dinner
+          16:00　點心<br>
+          17:30　🌅 #12 日落潛 — 蘇林島（Koh Surin，待定）<br>
+          20:00　晚餐
         </td>
-        <td>船宿</td>
       </tr>
       <tr>
-        <td>4/7 (二)<br><small style="color:var(--text-muted)">DAY 4 · 3潛</small></td>
+        <td>4/7 (二)<br><small style="color:var(--text-muted)">第4天 · 3潛</small><br><small style="color:var(--sand)">🏨 陸宿</small></td>
         <td>
-          06:30　Morning Call<br>
-          07:30　Dive Briefing<br>
+          06:30　起床號<br>
+          07:30　潛水說明<br>
           08:00　🤿 #13 塔差尖頂（Tachai Pinnacle）<br>
-          09:00　Breakfast<br>
+          09:00　早餐<br>
           11:30　🤿 #14 夢島（Koh Bon）<br>
-          12:30　Lunch<br>
+          12:30　午餐<br>
           15:00　🤿 #15 文崇沉船（Boonsung Wreck）<br>
-          16:00　Return to the Pier<br>
-          19:00　Transfer to Hotel
+          16:00　返回碼頭<br>
+          19:00　接送至飯店
         </td>
-        <td>船宿 / 陸宿</td>
       </tr>
-      <tr><td>4/8 (三)</td><td>🌴 陸地遊覽，自由行動</td><td>普吉島</td></tr>
-      <tr><td>4/9 (四)</td><td>🌴 陸地遊覽，自由行動，返台</td><td>—</td></tr>
+      <tr>
+        <td>4/8 (三)<br><small style="color:var(--sand)">🏨 陸宿</small></td>
+        <td>🌴 陸地遊覽，自由行動</td>
+      </tr>
+      <tr>
+        <td>4/9 (四)<br><small style="color:var(--text-muted)">—</small></td>
+        <td>🌴 陸地遊覽，自由行動，返台</td>
+      </tr>
     </tbody>
   </table>
 </section>
@@ -565,7 +632,7 @@
     <div class="checklist-box">
       <div class="checklist-box-title">📋 旅遊證件 &amp; 金融</div>
       <div class="checklist-item"><div class="check-dot"></div>護照（有效期6個月以上）</div>
-      <div class="checklist-item"><div class="check-dot"></div>泰國電子入境卡 TDAC（需提前3天填寫）</div>
+      <div class="checklist-item"><div class="check-dot"></div><a href="https://tdac.immigration.go.th/arrival-card" target="_blank" style="color:var(--teal-bright); text-decoration:none; border-bottom:1px solid var(--teal);">泰國數位入境卡（TDAC）</a>：入境前3天內填寫</div>
       <div class="checklist-item"><div class="check-dot"></div>保險資料（建議含潛水保險）</div>
       <div class="checklist-item"><div class="check-dot"></div>美金現金（普吉換匯以美金最划算）</div>
       <div class="checklist-item"><div class="check-dot"></div>信用卡（Visa / Master）</div>
@@ -599,9 +666,8 @@
       <div class="checklist-box-title">🧴 保養 &amp; 盥洗</div>
       <div class="checklist-item"><div class="check-dot"></div><strong style="color:var(--coral)">海洋友善防曬乳</strong>（禁含 Oxybenzone！）</div>
       <div class="checklist-item"><div class="check-dot"></div>防曬噴霧（備用，不含化學防曬）</div>
-      <div class="checklist-item"><div class="check-dot"></div>保濕乳液（海水特別乾燥）</div>
+      <div class="checklist-item"><div class="check-dot"></div>保濕乳液 / 護唇膏（海水特別乾燥）</div>
       <div class="checklist-item"><div class="check-dot"></div>洗髮乳、沐浴乳（船上可能有限）</div>
-      <div class="checklist-item"><div class="check-dot"></div>護唇膏（強烈建議）</div>
       <div class="checklist-item"><div class="check-dot"></div>防蚊液</div>
       <div class="checklist-item"><div class="check-dot"></div>個人慣用清潔用品</div>
     </div>
@@ -620,8 +686,7 @@
     <div class="checklist-box">
       <div class="checklist-box-title">🎒 個人雜物</div>
       <div class="checklist-item"><div class="check-dot"></div>手機、充電線、行動電源</div>
-      <div class="checklist-item"><div class="check-dot"></div><strong style="color:var(--coral)">泰國插座免轉接頭，電壓是220V，需確認電器標示支援 100-240V</strong></div>
-      <div class="checklist-item"><div class="check-dot"></div>防水手機袋</div>
+      <div class="checklist-item"><div class="check-dot"></div><strong style="color:var(--coral)">泰國插座（免轉接頭，電壓220V，需確認電器支援 100-240V）</strong></div>
       <div class="checklist-item"><div class="check-dot"></div>相機（防水袋保護）</div>
       <div class="checklist-item"><div class="check-dot"></div>小費零錢（泰銖）</div>
       <div class="checklist-item"><div class="check-dot"></div>零食 / 能量棒</div>
@@ -631,10 +696,10 @@
 
     <div class="checklist-box">
       <div class="checklist-box-title">🤿 水肺潛水輕裝備（包含但不限於，請自行評估）</div>
-      <div class="checklist-item"><div class="check-dot"></div>面鏡 + 呼吸管（強烈建議自備合臉型）</div>
+      <div class="checklist-item"><div class="check-dot"></div>面鏡 / 呼吸管</div>
       <div class="checklist-item"><div class="check-dot"></div>蛙鞋（可自備或現場租）</div>
       <div class="checklist-item"><div class="check-dot"></div>3mm 短袖濕衣 / 水母衣</div>
-      <div class="checklist-item"><div class="check-dot"></div>潛水電腦表（強烈建議自備）</div>
+      <div class="checklist-item"><div class="check-dot"></div>潛水電腦錶（強烈建議自備）</div>
       <div class="checklist-item"><div class="check-dot"></div>水下手電筒（夜潛用）</div>
       <div class="checklist-item"><div class="check-dot"></div>叮叮棒 / 響鈴（溝通用）</div>
       <div class="checklist-item"><div class="check-dot"></div>水面浮力袋 SMB（安全必備）</div>
@@ -986,54 +1051,6 @@
 
 <hr class="sep">
 
-<!-- ────────── 購物伴手禮 ────────── -->
-<section class="section" id="shopping">
-  <div class="section-header">
-    <span class="section-icon">🛍️</span>
-    <h2 class="section-title">購物 &amp; 伴手禮</h2>
-    <div class="section-line"></div>
-  </div>
-
-  <div class="two-col">
-    <div class="checklist-box">
-      <div class="checklist-box-title">🧴 泰國必買藥妝</div>
-      <div class="checklist-item"><div class="check-dot"></div>Tiger Balm 虎標萬金油（各大超市有售）</div>
-      <div class="checklist-item"><div class="check-dot"></div>泰國薄荷棒（Inhaler，隨身提神）</div>
-      <div class="checklist-item"><div class="check-dot"></div>SNAIL WHITE 蝸牛保濕系列</div>
-      <div class="checklist-item"><div class="check-dot"></div>草本去角質磨砂膏</div>
-      <div class="checklist-item"><div class="check-dot"></div>泰國製山藥面膜</div>
-      <div class="checklist-item"><div class="check-dot"></div>Boots 藥妝（機場GMS免稅店也有）</div>
-    </div>
-    <div class="checklist-box">
-      <div class="checklist-box-title">🍫 食品零食伴手禮</div>
-      <div class="checklist-item"><div class="check-dot"></div>座山牌米餅（必買泰國零食）</div>
-      <div class="checklist-item"><div class="check-dot"></div>KUNNA 椰子脆片</div>
-      <div class="checklist-item"><div class="check-dot"></div>泰式辣椒醬 / 打拋豬醬</div>
-      <div class="checklist-item"><div class="check-dot"></div>泰國茉莉香米</div>
-      <div class="checklist-item"><div class="check-dot"></div>泰式奶茶包</div>
-      <div class="checklist-item"><div class="check-dot"></div>芒果乾 / 鳳梨乾</div>
-    </div>
-    <div class="checklist-box">
-      <div class="checklist-box-title">🎁 手工藝品 &amp; 特色紀念品</div>
-      <div class="checklist-item"><div class="check-dot"></div>泰國絲巾 / 手工布包</div>
-      <div class="checklist-item"><div class="check-dot"></div>大象主題木雕小物</div>
-      <div class="checklist-item"><div class="check-dot"></div>天然香皂、精油（香茅、茉莉花）</div>
-      <div class="checklist-item"><div class="check-dot"></div>珍珠 / 珊瑚友好飾品</div>
-      <div class="checklist-item"><div class="check-dot"></div>泰式風格居家裝飾品（Central Patong有）</div>
-    </div>
-    <div class="checklist-box">
-      <div class="checklist-box-title">🏬 推薦購物地點</div>
-      <div class="checklist-item"><div class="check-dot"></div><strong>Big C Extra Phuket</strong> — 伴手禮最齊全，價格實惠</div>
-      <div class="checklist-item"><div class="check-dot"></div><strong>Central Patong</strong> — 品牌購物、手工裝飾品</div>
-      <div class="checklist-item"><div class="check-dot"></div><strong>Central Phuket</strong>（普吉鎮旁）— 最大購物中心</div>
-      <div class="checklist-item"><div class="check-dot"></div><strong>GMS機場免稅店</strong> — 出境前最後補貨</div>
-      <div class="checklist-item"><div class="check-dot"></div><strong>Naka Weekend Market</strong> — 週六日，手工藝品最多</div>
-    </div>
-  </div>
-</section>
-
-<hr class="sep">
-
 <!-- ────────── 注意事項 ────────── -->
 <section class="section bg-alt" id="notice">
   <div class="section-header">
@@ -1051,7 +1068,7 @@
 
   <div class="notice">
     <span class="notice-icon">🌊</span>
-    <span class="notice-text"><strong>4月海況：</strong>安達曼海浪況平靜，波高通常 0.5-1m。斯米蘭航程（Thaplamu碼頭出發）約1.5小時，暈船者請提前服藥。某些潛點如 Koh Tachai 水流強，需有AOW以上資質。</span>
+    <span class="notice-text"><strong>4月海況：</strong>安達曼海浪況平靜，波高通常 0.5-1m。斯米蘭航程（塔普拉穆碼頭 Thaplamu Pier 出發）約1.5小時，暈船者請提前服藥。某些潛點如塔差島（Koh Tachai）水流強，需有 AOW 以上資質。</span>
   </div>
 
   <h3 style="color:var(--teal-bright); margin: 1.5rem 0 1rem; font-size:1.05rem;">🍽️ 飲食安全</h3>
@@ -1060,36 +1077,38 @@
     <div>
       <div class="notice">
         <span class="notice-icon">✅</span>
-        <span class="notice-text">建議<strong>飲用瓶裝水</strong>，避免直接飲用自來水。冰塊在正規餐廳通常安全。泰國食物普遍油辣，腸胃敏感者注意調整辣度（告知「不辣/少辣」: Mai Phet）。</span>
+        <span class="notice-text">建議<strong>飲用瓶裝水</strong>，避免直接飲用自來水。冰塊在正規餐廳通常安全。泰國食物普遍油辣，腸胃敏感者注意調整辣度（告知「不辣/少辣」：Mai Phet）。</span>
       </div>
     </div>
     <div>
       <div class="notice">
         <span class="notice-icon">🦞</span>
-        <span class="notice-text">夜市新鮮海鮮整體安全，但<strong>選熱食、現煮</strong>為主。船宿期間通常提供三餐點心，可在Khao Lak小鎮先買些零食上船（船上加成售價較高）。</span>
+        <span class="notice-text">夜市新鮮海鮮整體安全，但<strong>選熱食、現煮</strong>為主。船宿期間通常提供三餐點心，可在考拉鎮（Khao Lak）先買些零食上船（船上加成售價較高）。</span>
       </div>
     </div>
   </div>
 
   <h3 style="color:var(--teal-bright); margin: 1.5rem 0 1rem; font-size:1.05rem;">🚗 交通</h3>
 
+  <div class="table-wrap">
   <table class="info-table">
     <thead>
       <tr><th>路線</th><th>方式</th><th>費用參考</th><th>備註</th></tr>
     </thead>
     <tbody>
-      <tr><td>普吉機場 → 芭東海灘</td><td>計程車 / 麵包車 Minivan</td><td>600-800 THB / 150-200 THB共乘</td><td>車程約40分鐘</td></tr>
-      <tr><td>普吉島市區移動</td><td>Grab 叫車（推薦）</td><td>視距離，通常50-200 THB</td><td>比路邊攔車更透明安心</td></tr>
-      <tr><td>芭東 → Thaplamu碼頭</td><td>包車</td><td>800-1200 THB</td><td>前往斯米蘭船宿出發碼頭</td></tr>
-      <tr><td>市區短距離</td><td>嘟嘟車 Tuk-tuk</td><td>50-150 THB</td><td>記得先議價</td></tr>
+      <tr><td>普吉機場 → 芭東海灘（Patong Beach）</td><td>計程車 / 共乘麵包車（Minivan）</td><td>600-800 / 150-200 泰銖</td><td>車程約40分鐘</td></tr>
+      <tr><td>普吉島市區移動</td><td>Grab 叫車（推薦）</td><td>視距離，通常 50-200 泰銖</td><td>比路邊攔車更透明安心</td></tr>
+      <tr><td>芭東 → 塔普拉穆碼頭（Thaplamu Pier）</td><td>包車</td><td>800-1,200 泰銖</td><td>前往斯米蘭船宿出發碼頭</td></tr>
+      <tr><td>市區短距離</td><td>嘟嘟車（Tuk-tuk）</td><td>50-150 泰銖</td><td>記得先議價</td></tr>
     </tbody>
   </table>
+  </div>
 
-  <h3 style="color:var(--teal-bright); margin: 1.5rem 0 1rem; font-size:1.05rem;">💰 金錢 &amp; 小費</h3>
+  <h3 style="color:var(--teal-bright); margin: 1.5rem 0 1rem; font-size:1.05rem;">💰 金錢</h3>
 
   <div class="notice">
     <span class="notice-icon">💵</span>
-    <span class="notice-text"><strong>帶美金換匯最划算</strong>（普吉島以美金為主，台幣匯損明顯）。海關規定入境需攜帶 20,000 THB 以上等值現金。</span>
+    <span class="notice-text"><strong>帶美金換匯最划算</strong>（普吉島以美金為主，台幣匯損明顯）。海關規定入境需攜帶 20,000 泰銖以上等值現金。</span>
   </div>
 
   <h3 style="color:var(--teal-bright); margin: 1.5rem 0 1rem; font-size:1.05rem;">📱 實用資訊</h3>
@@ -1101,11 +1120,11 @@
       <div class="checklist-item"><div class="check-dot"></div><strong>Google Maps</strong> — 離線地圖先下載</div>
       <div class="checklist-item"><div class="check-dot"></div><strong>DivePlanning / Subsurface</strong> — 潛水計劃</div>
       <div class="checklist-item"><div class="check-dot"></div><strong>XE Currency</strong> — 即時匯率查詢</div>
-      <div class="checklist-item"><div class="check-dot"></div>泰語翻譯：Google翻譯相機掃描超好用</div>
+      <div class="checklist-item"><div class="check-dot"></div>泰語翻譯：Google 翻譯相機掃描超好用</div>
     </div>
     <div class="checklist-box">
       <div class="checklist-box-title">📋 泰國入境規定</div>
-      <div class="checklist-item"><div class="check-dot"></div><strong>TDAC電子入境卡</strong>：入境前3天內填寫</div>
+      <div class="checklist-item"><div class="check-dot"></div><strong><a href="https://tdac.immigration.go.th/arrival-card" target="_blank" style="color:var(--teal-bright); text-decoration:none; border-bottom:1px solid var(--teal);">泰國數位入境卡（TDAC）</a></strong>：入境前3天內填寫</div>
       <div class="checklist-item"><div class="check-dot"></div>台灣護照免簽入境，可停留 30 天</div>
       <div class="checklist-item"><div class="check-dot"></div>酒精免稅：1公升以內</div>
       <div class="checklist-item"><div class="check-dot"></div>香菸免稅：200支以內</div>
@@ -1117,12 +1136,60 @@
 
   <div class="notice">
     <span class="notice-icon">🐠</span>
-    <span class="notice-text"><strong>海洋友善防曬</strong>：禁用含 Oxybenzone（氧苯酮）成分的化學防曬乳，避免污染海洋。建議使用物理性（氧化鋅/二氧化鈦，非奈米級）防曬。潛水時禁止觸碰珊瑚，禁止帶走任何海洋生物或沙石。</span>
+    <span class="notice-text"><strong>海洋友善防曬</strong>：禁用含氧苯酮（Oxybenzone）成分的化學防曬乳，避免污染海洋。建議使用物理性（氧化鋅/二氧化鈦，非奈米級）防曬。潛水時禁止觸碰珊瑚，禁止帶走任何海洋生物或沙石。</span>
   </div>
 
   <div class="notice">
     <span class="notice-icon">🙏</span>
     <span class="notice-text">進入寺廟需<strong>穿著遮膝、遮肩服裝</strong>，脫鞋入內。佛像不可拍攝不雅照片。泰國人對王室非常尊重，切勿公開批評。</span>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ────────── 購物伴手禮 ────────── -->
+<section class="section" id="shopping">
+  <div class="section-header">
+    <span class="section-icon">🛍️</span>
+    <h2 class="section-title">購物 &amp; 伴手禮</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="two-col">
+    <div class="checklist-box">
+      <div class="checklist-box-title">🧴 泰國必買藥妝</div>
+      <div class="checklist-item"><div class="check-dot"></div>虎標萬金油（Tiger Balm，各大超市有售）</div>
+      <div class="checklist-item"><div class="check-dot"></div>泰國薄荷棒（Inhaler，隨身提神）</div>
+      <div class="checklist-item"><div class="check-dot"></div>蝸牛保濕系列（SNAIL WHITE）</div>
+      <div class="checklist-item"><div class="check-dot"></div>草本去角質磨砂膏</div>
+      <div class="checklist-item"><div class="check-dot"></div>泰國製山藥面膜</div>
+      <div class="checklist-item"><div class="check-dot"></div>Boots 藥妝（機場 GMS 免稅店也有）</div>
+    </div>
+    <div class="checklist-box">
+      <div class="checklist-box-title">🍫 食品零食伴手禮</div>
+      <div class="checklist-item"><div class="check-dot"></div>座山牌米餅（必買泰國零食）</div>
+      <div class="checklist-item"><div class="check-dot"></div>椰子脆片（KUNNA）</div>
+      <div class="checklist-item"><div class="check-dot"></div>泰式辣椒醬 / 打拋豬醬</div>
+      <div class="checklist-item"><div class="check-dot"></div>泰國茉莉香米</div>
+      <div class="checklist-item"><div class="check-dot"></div>泰式奶茶包</div>
+      <div class="checklist-item"><div class="check-dot"></div>芒果乾 / 鳳梨乾</div>
+    </div>
+    <div class="checklist-box">
+      <div class="checklist-box-title">🎁 手工藝品 &amp; 特色紀念品</div>
+      <div class="checklist-item"><div class="check-dot"></div>泰國絲巾 / 手工布包</div>
+      <div class="checklist-item"><div class="check-dot"></div>大象主題木雕小物</div>
+      <div class="checklist-item"><div class="check-dot"></div>天然香皂、精油（香茅、茉莉花）</div>
+      <div class="checklist-item"><div class="check-dot"></div>珊瑚友好飾品</div>
+      <div class="checklist-item"><div class="check-dot"></div>泰式風格居家裝飾品（Central Patong 有）</div>
+    </div>
+    <div class="checklist-box">
+      <div class="checklist-box-title">🏬 推薦購物地點</div>
+      <div class="checklist-item"><div class="check-dot"></div><strong>Big C Extra Phuket</strong> — 伴手禮最齊全，價格實惠</div>
+      <div class="checklist-item"><div class="check-dot"></div><strong>Central Patong</strong> — 品牌購物、手工裝飾品</div>
+      <div class="checklist-item"><div class="check-dot"></div><strong>Central Phuket</strong>（普吉鎮旁）— 最大購物中心</div>
+      <div class="checklist-item"><div class="check-dot"></div><strong>GMS 機場免稅店</strong> — 出境前最後補貨</div>
+      <div class="checklist-item"><div class="check-dot"></div><strong>那卡週末夜市（Naka Weekend Market）</strong> — 週六日，手工藝品最多</div>
+    </div>
   </div>
 </section>
 
