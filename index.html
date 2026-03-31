@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌊 普吉島 × 斯米蘭群島 旅遊攻略 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ocean-deep: #0a1628;
+    --ocean-mid: #0d2e52;
+    --ocean-light: #1a5276;
+    --teal: #00b4d8;
+    --teal-bright: #48cae4;
+    --sand: #f4e4c1;
+    --sand-dark: #d4a96a;
+    --coral: #e07b54;
+    --emerald: #2ec4b6;
+    --white: #f8fafc;
+    --text-muted: #94a3b8;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--ocean-deep);
+    color: var(--white);
+    font-family: 'Noto Serif TC', serif;
+    overflow-x: hidden;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: url('https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=1600&q=80') center/cover no-repeat;
+    filter: brightness(0.4) saturate(1.3);
+    transform: scale(1.05);
+    animation: slowZoom 20s ease-in-out infinite alternate;
+  }
+
+  @keyframes slowZoom {
+    from { transform: scale(1.05); }
+    to   { transform: scale(1.12); }
+  }
+
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(10,22,40,0.3) 0%, rgba(10,22,40,0.8) 100%);
+  }
+
+  .hero-content { position: relative; z-index: 2; padding: 2rem; }
+
+  .hero-date {
+    font-family: 'DM Mono', monospace;
+    font-size: .85rem;
+    letter-spacing: .25em;
+    color: var(--teal-bright);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    opacity: 0; animation: fadeUp .6s .2s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    line-height: 1.1;
+    color: var(--sand);
+    margin-bottom: .5rem;
+    opacity: 0; animation: fadeUp .7s .4s forwards;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: var(--teal-bright);
+    letter-spacing: .1em;
+    margin-bottom: 2rem;
+    opacity: 0; animation: fadeUp .7s .6s forwards;
+  }
+
+  .hero-tags {
+    display: flex; gap: .7rem; flex-wrap: wrap; justify-content: center;
+    opacity: 0; animation: fadeUp .7s .8s forwards;
+  }
+
+  .hero-tag {
+    background: rgba(0,180,216,.2);
+    border: 1px solid var(--teal);
+    color: var(--teal-bright);
+    padding: .35rem .9rem;
+    border-radius: 2rem;
+    font-size: .8rem;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: .08em;
+  }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform: translateY(22px); }
+    to   { opacity:1; transform: translateY(0); }
+  }
+
+  /* ─── WAVE DIVIDER ─── */
+  .wave-divider {
+    line-height: 0;
+    background: var(--ocean-deep);
+  }
+  .wave-divider svg { display: block; width: 100%; }
+
+  /* ─── NAV PILLS ─── */
+  .nav-pills {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(10,22,40,.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,180,216,.2);
+    padding: .75rem 1.5rem;
+    display: flex; gap: .5rem; flex-wrap: wrap; justify-content: center;
+  }
+
+  .nav-pill {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: .82rem;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: .06em;
+    padding: .3rem .85rem;
+    border-radius: 2rem;
+    border: 1px solid transparent;
+    transition: all .25s;
+  }
+  .nav-pill:hover {
+    color: var(--teal-bright);
+    border-color: var(--teal);
+    background: rgba(0,180,216,.1);
+  }
+
+  /* ─── SECTION BASE ─── */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+  }
+
+  .section-header {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-icon { font-size: 2rem; }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: var(--sand);
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--teal), transparent);
+  }
+
+  /* ─── CARD GRID ─── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .card {
+    background: var(--ocean-mid);
+    border: 1px solid rgba(0,180,216,.15);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform .3s, border-color .3s;
+  }
+  .card:hover { transform: translateY(-4px); border-color: var(--teal); }
+
+  .card-img {
+    width: 100%; height: 180px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card-body { padding: 1.2rem; }
+
+  .card-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    letter-spacing: .12em;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-bottom: .4rem;
+  }
+
+  .card-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--sand);
+    margin-bottom: .5rem;
+  }
+
+  .card-desc {
+    font-size: .85rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .card-link {
+    display: inline-block;
+    margin-top: .8rem;
+    font-size: .78rem;
+    color: var(--teal-bright);
+    text-decoration: none;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: .05em;
+    border-bottom: 1px solid transparent;
+    transition: border-color .2s;
+  }
+  .card-link:hover { border-bottom-color: var(--teal-bright); }
+
+  /* ─── CHECKLIST ─── */
+  .checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+
+  .checklist-box {
+    background: var(--ocean-mid);
+    border: 1px solid rgba(0,180,216,.15);
+    border-radius: 1rem;
+    padding: 1.4rem;
+  }
+
+  .checklist-box-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--teal-bright);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: .5rem;
+  }
+
+  .checklist-item {
+    display: flex; align-items: flex-start; gap: .6rem;
+    margin-bottom: .55rem;
+    font-size: .85rem;
+    color: var(--white);
+    line-height: 1.5;
+  }
+
+  .check-dot {
+    width: 6px; height: 6px;
+    background: var(--teal);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: .45rem;
+  }
+
+  /* ─── INFO STRIP ─── */
+  .info-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .info-chip {
+    background: linear-gradient(135deg, var(--ocean-mid), rgba(0,180,216,.12));
+    border: 1px solid rgba(0,180,216,.3);
+    border-radius: .8rem;
+    padding: 1.1rem;
+    text-align: center;
+  }
+
+  .info-chip-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--teal-bright);
+    display: block;
+    line-height: 1;
+    margin-bottom: .3rem;
+  }
+
+  .info-chip-label {
+    font-size: .78rem;
+    color: var(--text-muted);
+    letter-spacing: .05em;
+  }
+
+  /* ─── NOTICE BANNER ─── */
+  .notice {
+    background: linear-gradient(135deg, rgba(224,123,84,.15), rgba(224,123,84,.05));
+    border: 1px solid rgba(224,123,84,.4);
+    border-radius: .8rem;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1.2rem;
+    display: flex; gap: .8rem; align-items: flex-start;
+  }
+
+  .notice-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: .1rem; }
+
+  .notice-text {
+    font-size: .88rem;
+    line-height: 1.7;
+    color: var(--sand);
+  }
+
+  .notice-text strong { color: var(--coral); }
+
+  /* ─── TABLE ─── */
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .88rem;
+    margin: 1.2rem 0;
+  }
+
+  .info-table th {
+    background: rgba(0,180,216,.15);
+    color: var(--teal-bright);
+    padding: .65rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-family: 'DM Mono', monospace;
+    font-size: .78rem;
+    letter-spacing: .08em;
+  }
+
+  .info-table td {
+    padding: .6rem 1rem;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    color: var(--white);
+    vertical-align: top;
+  }
+
+  .info-table tr:hover td { background: rgba(0,180,216,.05); }
+
+  /* ─── TWO-COL ─── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  @media(max-width:640px) {
+    .two-col { grid-template-columns: 1fr; }
+    .hero-title { font-size: 2.4rem; }
+  }
+
+  /* ─── IMAGE BANNER ─── */
+  .img-banner {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(0,180,216,.2);
+  }
+
+  /* ─── SEPARATOR ─── */
+  .sep {
+    border: none;
+    border-top: 1px solid rgba(0,180,216,.15);
+    margin: 0;
+  }
+
+  /* ─── BADGE ─── */
+  .badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    letter-spacing: .1em;
+    padding: .2rem .6rem;
+    border-radius: 2rem;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+  .badge-green { background: rgba(46,196,182,.2); color: var(--emerald); border: 1px solid var(--emerald); }
+  .badge-orange { background: rgba(224,123,84,.2); color: var(--coral); border: 1px solid var(--coral); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: rgba(0,0,0,.4);
+    border-top: 1px solid rgba(0,180,216,.15);
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    color: var(--text-muted);
+    font-size: .82rem;
+    line-height: 1.8;
+  }
+
+  footer a { color: var(--teal); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* ─── BG SECTIONS ─── */
+  .bg-alt { background: rgba(13,46,82,.4); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-date">4月3日 — 4月9日 · 2026</p>
+    <h1 class="hero-title">普吉島 × 斯米蘭<br>旅遊全攻略</h1>
+    <p class="hero-subtitle">Phuket &amp; Similan Islands · Liveaboard Diving</p>
+    <div class="hero-tags">
+      <span class="hero-tag">🤿 船宿潛水</span>
+      <span class="hero-tag">🏝️ 斯米蘭群島</span>
+      <span class="hero-tag">🌊 安達曼海</span>
+      <span class="hero-tag">🍜 泰式美食</span>
+      <span class="hero-tag">💆 SPA 按摩</span>
+    </div>
+  </div>
+</section>
+
+<!-- NAV -->
+<nav class="nav-pills">
+  <a class="nav-pill" href="#checklist">📦 打包清單</a>
+  <a class="nav-pill" href="#diving">🤿 潛水資訊</a>
+  <a class="nav-pill" href="#food">🍜 美食推薦</a>
+  <a class="nav-pill" href="#massage">💆 按摩SPA</a>
+  <a class="nav-pill" href="#attraction">🏝️ 景點活動</a>
+  <a class="nav-pill" href="#notice">⚠️ 注意事項</a>
+  <a class="nav-pill" href="#shopping">🛍️ 購物伴手禮</a>
+</nav>
+
+<!-- ────────── 行程概覽 ────────── -->
+<section class="section" id="overview">
+  <div class="section-header">
+    <span class="section-icon">📅</span>
+    <h2 class="section-title">行程概覽</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="info-strip">
+    <div class="info-chip">
+      <span class="info-chip-num">7</span>
+      <span class="info-chip-label">天數</span>
+    </div>
+    <div class="info-chip">
+      <span class="info-chip-num">27-29°C</span>
+      <span class="info-chip-label">水溫</span>
+    </div>
+    <div class="info-chip">
+      <span class="info-chip-num">30m+</span>
+      <span class="info-chip-label">能見度</span>
+    </div>
+    <div class="info-chip">
+      <span class="info-chip-num">9</span>
+      <span class="info-chip-label">斯米蘭島嶼數</span>
+    </div>
+  </div>
+
+  <div class="notice" style="margin-bottom:1.5rem;">
+    <span class="notice-icon">🚢</span>
+    <span class="notice-text"><strong>船隻：</strong>曼達林皇后號（Mandarin Queen Liveaboard）｜ 北安達曼（North Andaman）線 ｜ 4天4夜 15潛</span>
+  </div>
+
+  <table class="info-table">
+    <thead>
+      <tr><th>日期</th><th>行程 / 潛點</th><th>住宿</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>4/3 (五)<br><small style="color:var(--text-muted)">出發夜</small></td><td>抵達普吉島，出發前往碼頭（Thap Lamu Pier），辦理登船手續<br><small style="color:var(--text-muted)">16:00-19:30 Transfer → 20:00 登船 → Cabin Allocation → Boat Briefing → Dinner</small></td><td>船宿</td></tr>
+      <tr><td>4/4 (六)<br><small style="color:var(--text-muted)">DAY 1 · 4潛</small></td><td>
+        🤿 #1 三棵樹（Thee Tree）<br>
+        🤿 #2 聖誕點（Christmas Point）<br>
+        🤿 #3 北角（North Point）<br>
+        🌙 #4 夜潛 — 南柴灣（Ao Nam Chai）
+      </td><td>船宿</td></tr>
+      <tr><td>4/5 (日)<br><small style="color:var(--text-muted)">DAY 2 · 4潛</small></td><td>
+        🤿 #5 象頭岩（Elephant Head Rock）<br>
+        🤿 #6 夢島（Koh Bon）<br>
+        🤿 #7 塔差尖頂（Tachai Pinnacle）<br>
+        🌙 #8 夜潛 — 塔差礁（Tachai Reef）
+      </td><td>船宿</td></tr>
+      <tr><td>4/6 (一)<br><small style="color:var(--text-muted)">DAY 3 · 4潛</small></td><td>
+        🤿 #9 黎希留岩（Richelieu Rock）<br>
+        🤿 #10 黎希留岩（Richelieu Rock）<br>
+        🤿 #11 黎希留岩（Richelieu Rock）<br>
+        🌅 #12 日落潛 — 蘇林島（Koh Surin，TBA）
+      </td><td>船宿</td></tr>
+      <tr><td>4/7 (二)<br><small style="color:var(--text-muted)">DAY 4 · 3潛</small></td><td>
+        🤿 #13 塔差尖頂（Tachai Pinnacle）<br>
+        🤿 #14 夢島（Koh Bon）<br>
+        🤿 #15 文崇沉船（Boonsung Wreck）<br>
+        <small style="color:var(--text-muted)">16:00 返回碼頭 → 19:00 接送至飯店</small>
+      </td><td>船宿 / 陸宿</td></tr>
+      <tr><td>4/8 (三)</td><td>🌴 陸地遊覽，自由行動</td><td>普吉島</td></tr>
+      <tr><td>4/9 (四)</td><td>🌴 陸地遊覽，自由行動，返台</td><td>—</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<hr class="sep">
+
+<!-- ────────── 打包清單 ────────── -->
+<section class="section bg-alt" id="checklist">
+  <div class="section-header">
+    <span class="section-icon">📦</span>
+    <h2 class="section-title">打包清單</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="checklist-grid">
+
+    <div class="checklist-box">
+      <div class="checklist-box-title">📋 旅遊證件 &amp; 金融</div>
+      <div class="checklist-item"><div class="check-dot"></div>護照（有效期6個月以上）</div>
+      <div class="checklist-item"><div class="check-dot"></div>泰國電子入境卡 TDAC（需提前3天填寫）</div>
+      <div class="checklist-item"><div class="check-dot"></div>保險資料（建議含潛水保險）</div>
+      <div class="checklist-item"><div class="check-dot"></div>美金現金（普吉換匯以美金最划算）</div>
+      <div class="checklist-item"><div class="check-dot"></div>信用卡（Visa / Master）</div>
+      <div class="checklist-item"><div class="check-dot"></div>泰國SIM卡 / eSIM（機場或預購）</div>
+      <div class="checklist-item"><div class="check-dot"></div><strong style="color:var(--coral)">潛水員證照（AOW以上）— 建議提前截圖備存</strong></div>
+      <div class="checklist-item"><div class="check-dot"></div><strong style="color:var(--coral)">高氧潛水證（Nitrox）— 建議提前截圖備存</strong></div>
+    </div>
+
+    <div class="checklist-box">
+      <div class="checklist-box-title">🩱 衣物 — 船宿（4/3–4/7）</div>
+      <div class="checklist-item"><div class="check-dot"></div>泳衣 / 比基尼 × 3套（每天需要）</div>
+      <div class="checklist-item"><div class="check-dot"></div>水母衣 / 長袖防寒衣（遇冷流可瞬降至24°C）</div>
+      <div class="checklist-item"><div class="check-dot"></div>輕便短袖、短褲 × 3-4件</div>
+      <div class="checklist-item"><div class="check-dot"></div>防紫外線長袖罩衫（甲板日曬強）</div>
+      <div class="checklist-item"><div class="check-dot"></div>輕薄外套（船上夜晚有風，空調冷）</div>
+      <div class="checklist-item"><div class="check-dot"></div>拖鞋 / 涉水鞋</div>
+      <div class="checklist-item"><div class="check-dot"></div>快乾毛巾 × 2</div>
+    </div>
+
+    <div class="checklist-box">
+      <div class="checklist-box-title">👗 衣物 — 陸地遊（4/8–4/9）</div>
+      <div class="checklist-item"><div class="check-dot"></div>輕便休閒短褲 + T恤</div>
+      <div class="checklist-item"><div class="check-dot"></div>寬鬆長褲一件（查龍寺需遮腿）</div>
+      <div class="checklist-item"><div class="check-dot"></div>輕便涼鞋 / 夾腳拖</div>
+      <div class="checklist-item"><div class="check-dot"></div>帽子 / 遮陽帽（4月氣溫約32°C）</div>
+      <div class="checklist-item"><div class="check-dot"></div>墨鏡</div>
+      <div class="checklist-item"><div class="check-dot"></div>備用輕薄穿搭（按摩後換洗）</div>
+    </div>
+
+    <div class="checklist-box">
+      <div class="checklist-box-title">🧴 保養 &amp; 盥洗</div>
+      <div class="checklist-item"><div class="check-dot"></div><strong style="color:var(--coral)">海洋友善防曬乳</strong>（禁含 Oxybenzone！）</div>
+      <div class="checklist-item"><div class="check-dot"></div>防曬噴霧（備用，不含化學防曬）</div>
+      <div class="checklist-item"><div class="check-dot"></div>保濕乳液（海水特別乾燥）</div>
+      <div class="checklist-item"><div class="check-dot"></div>洗髮乳、沐浴乳（船上可能有限）</div>
+      <div class="checklist-item"><div class="check-dot"></div>護唇膏（強烈建議）</div>
+      <div class="checklist-item"><div class="check-dot"></div>防蚊液</div>
+      <div class="checklist-item"><div class="check-dot"></div>個人慣用清潔用品</div>
+    </div>
+
+    <div class="checklist-box">
+      <div class="checklist-box-title">💊 藥品 &amp; 急救</div>
+      <div class="checklist-item"><div class="check-dot"></div><strong style="color:var(--coral)">暈船藥</strong>（自行評估服用時間）</div>
+      <div class="checklist-item"><div class="check-dot"></div>腸胃藥（止瀉、消脹氣）</div>
+      <div class="checklist-item"><div class="check-dot"></div>感冒藥、退燒藥</div>
+      <div class="checklist-item"><div class="check-dot"></div>OK繃 / 創傷貼片</div>
+      <div class="checklist-item"><div class="check-dot"></div>耳朵乾燥劑 / 耳藥水（預防耳壓傷）</div>
+      <div class="checklist-item"><div class="check-dot"></div>個人處方藥</div>
+      <div class="checklist-item"><div class="check-dot"></div>電解質補充包</div>
+    </div>
+
+    <div class="checklist-box">
+      <div class="checklist-box-title">🎒 個人雜物</div>
+      <div class="checklist-item"><div class="check-dot"></div>手機、充電線、行動電源</div>
+      <div class="checklist-item"><div class="check-dot"></div><strong style="color:var(--coral)">萬國插座轉接頭（泰國為A型/B型，建議萬用款）</strong></div>
+      <div class="checklist-item"><div class="check-dot"></div>防水手機袋</div>
+      <div class="checklist-item"><div class="check-dot"></div>相機（防水袋保護）</div>
+      <div class="checklist-item"><div class="check-dot"></div>小費零錢（泰銖）</div>
+      <div class="checklist-item"><div class="check-dot"></div>零食 / 能量棒（船上販賣偏貴）</div>
+      <div class="checklist-item"><div class="check-dot"></div>環保購物袋</div>
+      <div class="checklist-item"><div class="check-dot"></div>防水密封袋（多帶幾個）</div>
+    </div>
+
+    <div class="checklist-box">
+      <div class="checklist-box-title">🤿 水肺潛水輕裝備（包含但不限於，請自行評估）</div>
+      <div class="checklist-item"><div class="check-dot"></div>面鏡 + 呼吸管（強烈建議自備合臉型）</div>
+      <div class="checklist-item"><div class="check-dot"></div>蛙鞋（可自備或現場租）</div>
+      <div class="checklist-item"><div class="check-dot"></div>3mm 短袖濕衣 / 水母衣</div>
+      <div class="checklist-item"><div class="check-dot"></div>潛水電腦表（強烈建議自備）</div>
+      <div class="checklist-item"><div class="check-dot"></div>水下手電筒（夜潛用）</div>
+      <div class="checklist-item"><div class="check-dot"></div>叮叮棒 / 響鈴（溝通用）</div>
+      <div class="checklist-item"><div class="check-dot"></div>水面浮力袋 SMB（安全必備）</div>
+      <div class="checklist-item"><div class="check-dot"></div>水中記事板</div>
+    </div>
+
+    <div class="checklist-box">
+      <div class="checklist-box-title">🤿 水肺潛水重裝備（可租借）</div>
+      <div class="checklist-item"><div class="check-dot"></div>BCD 浮力調節器（可租：2,000 THB/趟）</div>
+      <div class="checklist-item"><div class="check-dot"></div>調節器（可租，含於上述費用）</div>
+      <div class="checklist-item"><div class="check-dot"></div>配重帶 / 配重塊（船上提供）</div>
+      <div class="checklist-item"><div class="check-dot"></div>氣瓶（船上提供）</div>
+      <div class="notice" style="margin-top:.8rem; padding:.8rem;">
+        <span class="notice-icon">🚫</span>
+        <span class="notice-text" style="font-size:.78rem;"><strong>禁止攜帶入水</strong>：流鉤、手套（泰國法規）。叮叮棒僅限溝通使用，違者罰款。</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ────────── 潛水資訊 ────────── -->
+<section class="section" id="diving">
+  <div class="section-header">
+    <span class="section-icon">🤿</span>
+    <h2 class="section-title">斯米蘭潛水完全指南</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <img class="img-banner" src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1100&q=80" alt="斯米蘭水下珊瑚礁">
+
+  <div class="info-strip">
+    <div class="info-chip"><span class="info-chip-num">27-29°C</span><span class="info-chip-label">平均水溫（遇冷流 ↓24°C）</span></div>
+    <div class="info-chip"><span class="info-chip-num">30m+</span><span class="info-chip-label">平均能見度</span></div>
+    <div class="info-chip"><span class="info-chip-num">3-4</span><span class="info-chip-label">每日潛水次數</span></div>
+    <div class="info-chip"><span class="info-chip-num">30°C</span><span class="info-chip-label">年均氣溫</span></div>
+  </div>
+
+  <div class="notice">
+    <span class="notice-icon">🌟</span>
+    <span class="notice-text">4月是斯米蘭開放季尾聲（10月–翌年5月中旬），天氣穩定、海況平靜，能見度極佳。<strong>2-5月</strong>是最容易在黎希留岩遇見<strong>鯨鯊</strong>的季節！</span>
+  </div>
+
+  <h3 style="color:var(--teal-bright); margin: 1.5rem 0 1rem; font-size:1.1rem;">🗺️ 主要潛點介紹</h3>
+
+  <div class="card-grid">
+    <div class="card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=80" alt="黎希留岩">
+      <div class="card-body">
+        <div class="card-tag">泰國No.1潛點</div>
+        <div class="card-title">黎希留岩（Richelieu Rock）<span class="badge badge-orange">★★★★★</span></div>
+        <div class="card-desc">馬蹄形礁岩，退潮時露出海面。魚群密集，梭魚風暴、捷克魚群、燕魚群壯觀。2-5月是鯨鯊常客造訪季節，能見度高達35m。深度：5-30m。</div>
+        <a class="card-link" href="https://www.mingdiving.com/similanislands" target="_blank">更多資訊 →</a>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=600&q=80" alt="夢島">
+      <div class="card-body">
+        <div class="card-tag">鬼蝠魟清潔站</div>
+        <div class="card-title">夢島（Koh Bon）<span class="badge badge-orange">★★★★★</span></div>
+        <div class="card-desc">斯米蘭最知名的鬼蝠魟（Manta Ray）目擊潛點。牠們從深海沿山脊游至20m處優雅盤旋。流大但不亂，峭壁處常見獅子魚、裸鰓類。深度：10-40m（AOW以上）。</div>
+        <a class="card-link" href="https://www.mingdiving.com/similanislands" target="_blank">更多資訊 →</a>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1560275619-4cc5fa59d3ae?w=600&q=80" alt="斯米蘭主島">
+      <div class="card-body">
+        <div class="card-tag">象頭岩 / 珊瑚礁</div>
+        <div class="card-title">斯米蘭本島 8號島（Koh Similan）<span class="badge badge-green">OW友善</span></div>
+        <div class="card-desc">最著名的帆船石（象頭岩，Sail Rock）地標，登上岩頂俯瞰全島。水下地形為巨型花崗岩礁，海扇比人還大，遇燕魟（Eagle Ray）、蘇眉魚機率高。測潛首選：中國牆（China Wall）。</div>
+        <a class="card-link" href="https://snowdiving.tw/similan-islands/" target="_blank">更多資訊 →</a>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=600&q=80" alt="塔差島">
+      <div class="card-body">
+        <div class="card-tag">水流最強潛點</div>
+        <div class="card-title">塔差島（Koh Tachai）<span class="badge badge-orange">AOW以上</span></div>
+        <div class="card-desc">斯米蘭水流最大潛點。礁石周圍分布巨石，墨綠色珊瑚與海扇密佈，運氣好可見海狼風暴。需緊跟潛導，注意深度與氣壓表。深度：12-40m。</div>
+        <a class="card-link" href="https://www.ofucos.com/product/similan_liveboard/" target="_blank">更多資訊 →</a>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1493545266936-1a988f50b3d8?w=600&q=80" alt="文崇沉船">
+      <div class="card-body">
+        <div class="card-tag">沉船潛點</div>
+        <div class="card-title">文崇沉船（Boonsung Wreck）<span class="badge badge-green">OW友善</span></div>
+        <div class="card-desc">1984年沉沒的錫礦採礦船，2004年海嘯後裂成5段。最大深度18m，無水流，能見度稍差。可見海狼寶寶、大眼鯛魚群、獅子魚群及特有的斑點鰻。</div>
+        <a class="card-link" href="https://www.directiontravel.com.tw/group_detail.asp?seq=203" target="_blank">更多資訊 →</a>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=600&q=80" alt="珊瑚花園">
+      <div class="card-body">
+        <div class="card-tag">5/6/9號島周邊</div>
+        <div class="card-title">珊瑚花園系列（Coral Gardens）<span class="badge badge-green">OW友善</span></div>
+        <div class="card-desc">珊瑚密集，運氣好可邂逅海龜。顏色繽紛的熱帶魚群，種類豐富，大有小，是拍攝微距生物（裸鰓類、海馬、螳螂蝦）的理想場域。</div>
+        <a class="card-link" href="https://bluetrend.media/diving-in-similan-island-thailand/" target="_blank">更多資訊 →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="notice" style="margin-top:1.5rem;">
+    <span class="notice-icon">💡</span>
+    <span class="notice-text"><strong>潛水禮儀 &amp; 規定：</strong>不得觸碰珊瑚、不得帶走任何生物或沙石。禁止流鉤、手套。泰國規定，船上不得隨意下錨。請記得給潛導小費，建議 80 美金 / 全程。</span>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ────────── 美食推薦 ────────── -->
+<section class="section bg-alt" id="food">
+  <div class="section-header">
+    <span class="section-icon">🍜</span>
+    <h2 class="section-title">普吉島美食推薦</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <img class="img-banner" src="https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=1100&q=80" alt="泰國美食">
+
+  <h3 style="color:var(--teal-bright); margin-bottom:1rem; font-size:1.05rem;">🌟 普吉特色必吃</h3>
+  <p style="color:var(--text-muted); font-size:.85rem; margin-bottom:1.2rem; line-height:1.8;">普吉美食融合閩南移民飲食與泰國料理，風味獨特，與其他地區的泰菜不同！</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=600&q=80" alt="福建麵">
+      <div class="card-body">
+        <div class="card-tag">普吉必吃 No.1</div>
+        <div class="card-title">福建炒麵（Mee Hokkien）</div>
+        <div class="card-desc">黃麵與蝦、豬肉片、魷魚、青菜共同拌炒，上菜前打一顆生蛋，淋上參巴醬與萊姆汁。海味十足，是普吉最具代表性的在地料理。</div>
+        <a class="card-link" href="https://visionthai.net/article/must-eat-phuket/" target="_blank">更多介紹 →</a>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4?w=600&q=80" alt="控肉">
+      <div class="card-body">
+        <div class="card-tag">閩南家常</div>
+        <div class="card-title">普吉控肉（Moo Hong）</div>
+        <div class="card-desc">以五花肉搭配醬油、糖、大蒜、胡椒與八角燉煮2-3小時，醬汁濃郁偏甜。是很下飯的閩南傳統菜，在普吉餐廳廣泛可見。</div>
+        <a class="card-link" href="https://visionthai.net/article/must-eat-phuket/" target="_blank">更多介紹 →</a>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=600&q=80" alt="蒸咖哩海鮮">
+      <div class="card-body">
+        <div class="card-tag">泰南特色</div>
+        <div class="card-title">蒸咖哩海鮮（Homok）</div>
+        <div class="card-desc">以香料和魚肉入菜，加咖哩、椰奶調和，用芭蕉葉包裹蒸熟。普吉版顏色偏黃，使用大塊魚肉，香氣濃郁、口感滑潤，與一般橘紅色泰式蒸咖哩不同。</div>
+        <a class="card-link" href="https://visionthai.net/article/must-eat-phuket/" target="_blank">更多介紹 →</a>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=600&q=80" alt="海鮮">
+      <div class="card-body">
+        <div class="card-tag">海鮮控天堂</div>
+        <div class="card-title">新鮮海鮮燒烤</div>
+        <div class="card-desc">芭東海灘周邊夜市海鮮豐富：龍蝦、螃蟹、老虎蝦、蛤蜊。Rat U Thit 200 Pee路及海濱 Sawatdirak 路上餐廳密集，每桌 300-500 THB 就能吃到滿。</div>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80" alt="黑糯米冰淇淋">
+      <div class="card-body">
+        <div class="card-tag">夢幻甜點</div>
+        <div class="card-title">黑糯米椰奶冰淇淋</div>
+        <div class="card-desc">老城區粉紅色外觀的手工冰淇淋店招牌，老闆Torry將普吉傳統甜點結合西方手法，鹹甜滋味受泰國皇室與 BLACKPINK 的 Lisa 喜愛！地址：16 Soi Rommani。</div>
+        <a class="card-link" href="https://maps.app.goo.gl/4RkevMvCmSPy3Rtt7" target="_blank">Google Maps →</a>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?w=600&q=80" alt="芒果糯米飯">
+      <div class="card-body">
+        <div class="card-tag">泰式國民甜點</div>
+        <div class="card-title">芒果糯米飯 &amp; 泰式奶茶</div>
+        <div class="card-desc">夜市必點！香甜芒果搭配椰奶糯米飯，一份約 80-120 THB。泰式奶茶（ชาไทย）加煉乳的濃郁香甜版本是在地喝法，各夜市攤位均可找到。</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="color:var(--teal-bright); margin: 2rem 0 1rem; font-size:1.05rem;">🏪 推薦餐廳 &amp; 夜市</h3>
+
+  <table class="info-table">
+    <thead>
+      <tr><th>名稱</th><th>類型</th><th>特色</th><th>位置</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="https://maps.app.goo.gl/K6dMk6q7rNpUcBBi6" target="_blank" style="color:var(--teal)">土窖交（Tu Kab Khao）</a></td>
+        <td>米其林必比登</td>
+        <td>老城區老宅改建，泰南傳統料理，人氣超旺</td>
+        <td>普吉老城區</td>
+      </tr>
+      <tr>
+        <td><a href="https://maps.app.goo.gl/TH5xFEk9Q2fJqdLs8" target="_blank" style="color:var(--teal)">Kan Eang at Pier 50</a></td>
+        <td>海景海鮮餐廳</td>
+        <td>老字號泰式餐館，熱帶雨林氛圍，海景絕佳</td>
+        <td>羅威海灘（Rawai Beach）</td>
+      </tr>
+      <tr>
+        <td>那卡週末夜市（Naka Weekend Market）</td>
+        <td>週末夜市（六日）</td>
+        <td>普吉島最大夜市，媲美曼谷洽圖洽，美食、手工藝、服飾</td>
+        <td>普吉鎮（Phuket Town）</td>
+      </tr>
+      <tr>
+        <td>青蛙夜市（Frog Night Market）</td>
+        <td>夜市</td>
+        <td>環境乾淨舒適，炸蝦餅、椰子冰淇淋必嚐，海鮮吃到飽699 THB</td>
+        <td>芭東（Patong）</td>
+      </tr>
+      <tr>
+        <td>Doo Dee Thai Food</td>
+        <td>泰式小炒</td>
+        <td>芭東區評價佳，價格親民，每道約100-150 THB</td>
+        <td>芭東主幹道（Rat U Thit 200 Pee Rd）</td>
+      </tr>
+      <tr>
+        <td>老城週日步行街（Old Town Sunday Walking Street）</td>
+        <td>週日市集（16:00-22:00）</td>
+        <td>老城 Thalang Road 路邊攤，在地小吃最集中</td>
+        <td>普吉老城（Phuket Old Town）</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<hr class="sep">
+
+<!-- ────────── 按摩SPA ────────── -->
+<section class="section" id="massage">
+  <div class="section-header">
+    <span class="section-icon">💆</span>
+    <h2 class="section-title">SPA &amp; 泰式按摩</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <p style="color:var(--text-muted); margin-bottom:1.5rem; line-height:1.8; font-size:.9rem;">船宿後肌肉疲勞、皮膚乾燥，4/8-4/9 陸地天正是享受按摩的最佳時機！建議提前線上預約比現場便宜，且品質更穩定。</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=600&q=80" alt="SPA按摩">
+      <div class="card-body">
+        <div class="card-tag">連鎖口碑品牌</div>
+        <div class="card-title">Let's Relax Spa</div>
+        <div class="card-desc">泰國知名連鎖按摩品牌，普吉島芭東設有分店，環境整潔，品質穩定。價格從 600 THB起，泰式按摩、精油按摩均有。強烈建議線上預約。</div>
+        <a class="card-link" href="https://www.klook.com/zh-TW/activity/phuket-lets-relax-spa/" target="_blank">KLOOK預約 →</a>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80" alt="Orientala Spa">
+      <div class="card-body">
+        <div class="card-tag">芭東中價位推薦</div>
+        <div class="card-title">Orientala Spa Phuket Patong</div>
+        <div class="card-desc">普吉島4間分店均在 Patong，提供免費飯店接送。泰式按摩、精油按摩主打。環境輕鬆、按摩師品質不錯。營業：10:00-23:00。提前線上購票更省錢。</div>
+        <a class="card-link" href="https://www.bring-you.info/zh-tw/orientala-spa" target="_blank">詳細介紹 →</a>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&q=80" alt="SUUKO SPA">
+      <div class="card-body">
+        <div class="card-tag">森林系獲獎SPA</div>
+        <div class="card-title">SUUKO Wellness &amp; Spa</div>
+        <div class="card-desc">座落於森林中的泰國傳統建築，傳統水池環繞，環境絕佳。使用天然草藥與純精油，獲獎無數。適合想深度放鬆者。距普吉老街20分鐘。</div>
+        <a class="card-link" href="https://www.klook.com/zh-TW/search/?query=SUUKO+spa+phuket" target="_blank">KLOOK預約 →</a>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80" alt="路邊按摩">
+      <div class="card-body">
+        <div class="card-tag">平價路邊選項</div>
+        <div class="card-title">芭東路邊小店</div>
+        <div class="card-desc">主幹道 Rat U Thit 200 Pee 路沿途有大量按摩店，泰式按摩 200-250 THB/小時，隨時可進。品質靠運氣，建議看Google評分再決定。</div>
+      </div>
+    </div>
+  </div>
+
+  <table class="info-table" style="margin-top:1.5rem;">
+    <thead>
+      <tr><th>按摩類型</th><th>建議時長</th><th>參考價格</th><th>特色</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>泰式傳統按摩</td><td>60-120 分</td><td>200-600 THB</td><td>被動瑜伽拉伸，骨頭「喀喀」很舒暢，力道重</td></tr>
+      <tr><td>精油香薰按摩</td><td>60-90 分</td><td>600-1200 THB</td><td>輕柔放鬆，怕痛者首選，可選精油香味</td></tr>
+      <tr><td>足部按摩</td><td>30-60 分</td><td>200-400 THB</td><td>走路逛街後最舒服，隨時可進不需預約</td></tr>
+      <tr><td>熱草藥按摩</td><td>90-120 分</td><td>800-1500 THB</td><td>泰草藥布包加熱推拿，消炎舒緩一流</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<hr class="sep">
+
+<!-- ────────── 陸地景點 ────────── -->
+<section class="section bg-alt" id="attraction">
+  <div class="section-header">
+    <span class="section-icon">🏝️</span>
+    <h2 class="section-title">陸地景點（4/8 &amp; 4/9）</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80" alt="普吉老城">
+      <div class="card-body">
+        <div class="card-tag">文化 / 打卡</div>
+        <div class="card-title">普吉老城區（Phuket Old Town）</div>
+        <div class="card-desc">中式、葡式、泰式融合的彩色建築街道。週日 16:00-22:00 有步行夜市街，品嚐在地小吃、挖掘特色小店。必吃乾排骨泡飯（開業20年人氣店）。</div>
+        <a class="card-link" href="https://maps.app.goo.gl/vk5bJU6rEjqFP1Bx9" target="_blank">Google Maps →</a>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1598880940080-ff9a29891b85?w=600&q=80" alt="查龍寺">
+      <div class="card-body">
+        <div class="card-tag">宗教 / 文化</div>
+        <div class="card-title">查龍寺（Wat Chalong）</div>
+        <div class="card-desc">普吉島最重要的佛教寺廟，莊嚴壯麗。<strong style="color:var(--coral)">請務必穿遮腿長褲或裙</strong>，肩膀需遮住。入場免費，周邊有香火小物可購買。</div>
+        <a class="card-link" href="https://maps.app.goo.gl/2HeTHdGcKhxjWEb5A" target="_blank">Google Maps →</a>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1522163182402-834f871fd851?w=600&q=80" alt="神仙半島">
+      <div class="card-body">
+        <div class="card-tag">日落 / 網美</div>
+        <div class="card-title">神仙半島（Promthep Cape）</div>
+        <div class="card-desc">普吉島最南端，黃昏夕陽被公認全島最美。山頂供奉四面佛，能量場強。建議 17:00 前抵達搶位，日落大約 18:30-19:00。</div>
+        <a class="card-link" href="https://maps.app.goo.gl/JBVsPp6GHe9W2bM27" target="_blank">Google Maps →</a>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" alt="芭東海灘">
+      <div class="card-body">
+        <div class="card-tag">海灘 / 水上活動</div>
+        <div class="card-title">芭東海灘（Patong Beach）</div>
+        <div class="card-desc">3公里長的細白沙灘，白天可玩水上摩托車、香蕉船、拖曳傘。旁邊有江西冷購物中心（Jungceylon）、Big C 超市、各種按摩店和餐廳，一整天玩不完。</div>
+        <a class="card-link" href="https://maps.app.goo.gl/K9yKvLFUKdNqg7T86" target="_blank">Google Maps →</a>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1504214208698-ea1916a2195a?w=600&q=80" alt="攀牙灣">
+      <div class="card-body">
+        <div class="card-tag">跳島 / 一日遊</div>
+        <div class="card-title">攀牙灣（Phang Nga Bay）/ 007島（James Bond Island）</div>
+        <div class="card-desc">詹姆士龐德電影取景地，石灰岩地形壯觀。皮皮島（Phi Phi Islands）浮潛跳島也非常推薦，可在普吉出發報名一日遊行程，費用約 1,200-2,000 THB。</div>
+        <a class="card-link" href="https://maps.app.goo.gl/gPmr8RhLeHqFzFAb6" target="_blank">Google Maps →</a>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1580541832626-2a7131ee809f?w=600&q=80" alt="夜生活">
+      <div class="card-body">
+        <div class="card-tag">夜生活</div>
+        <div class="card-title">班各拉路（Bangla Road）</div>
+        <div class="card-desc">芭東最熱鬧的夜生活街道，音樂酒吧、高空酒吧、西蒙人妖秀（Simon Cabaret，每晚6/7:30/9點各一場）。從傍晚開始熱鬧，老少皆宜部分在路面，18禁在巷弄內。</div>
+        <a class="card-link" href="https://maps.app.goo.gl/qdGV4p1jBPr2G5TG9" target="_blank">Google Maps →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ────────── 購物伴手禮 ────────── -->
+<section class="section" id="shopping">
+  <div class="section-header">
+    <span class="section-icon">🛍️</span>
+    <h2 class="section-title">購物 &amp; 伴手禮</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="two-col">
+    <div class="checklist-box">
+      <div class="checklist-box-title">🧴 泰國必買藥妝</div>
+      <div class="checklist-item"><div class="check-dot"></div>Tiger Balm 虎標萬金油（各大超市有售）</div>
+      <div class="checklist-item"><div class="check-dot"></div>泰國薄荷棒（Inhaler，隨身提神）</div>
+      <div class="checklist-item"><div class="check-dot"></div>SNAIL WHITE 蝸牛保濕系列</div>
+      <div class="checklist-item"><div class="check-dot"></div>草本去角質磨砂膏</div>
+      <div class="checklist-item"><div class="check-dot"></div>泰國製山藥面膜</div>
+      <div class="checklist-item"><div class="check-dot"></div>Boots 藥妝（機場GMS免稅店也有）</div>
+    </div>
+    <div class="checklist-box">
+      <div class="checklist-box-title">🍫 食品零食伴手禮</div>
+      <div class="checklist-item"><div class="check-dot"></div>座山牌米餅（必買泰國零食）</div>
+      <div class="checklist-item"><div class="check-dot"></div>KUNNA 椰子脆片</div>
+      <div class="checklist-item"><div class="check-dot"></div>泰式辣椒醬 / 打拋豬醬</div>
+      <div class="checklist-item"><div class="check-dot"></div>泰國茉莉香米</div>
+      <div class="checklist-item"><div class="check-dot"></div>泰式奶茶包</div>
+      <div class="checklist-item"><div class="check-dot"></div>芒果乾 / 鳳梨乾</div>
+    </div>
+    <div class="checklist-box">
+      <div class="checklist-box-title">🎁 手工藝品 &amp; 特色紀念品</div>
+      <div class="checklist-item"><div class="check-dot"></div>泰國絲巾 / 手工布包</div>
+      <div class="checklist-item"><div class="check-dot"></div>大象主題木雕小物</div>
+      <div class="checklist-item"><div class="check-dot"></div>天然香皂、精油（香茅、茉莉花）</div>
+      <div class="checklist-item"><div class="check-dot"></div>珍珠 / 珊瑚友好飾品</div>
+      <div class="checklist-item"><div class="check-dot"></div>泰式風格居家裝飾品（Central Patong有）</div>
+    </div>
+    <div class="checklist-box">
+      <div class="checklist-box-title">🏬 推薦購物地點</div>
+      <div class="checklist-item"><div class="check-dot"></div><strong>Big C Extra Phuket</strong> — 伴手禮最齊全，價格實惠</div>
+      <div class="checklist-item"><div class="check-dot"></div><strong>Central Patong</strong> — 品牌購物、手工裝飾品</div>
+      <div class="checklist-item"><div class="check-dot"></div><strong>Central Phuket</strong>（普吉鎮旁）— 最大購物中心</div>
+      <div class="checklist-item"><div class="check-dot"></div><strong>GMS機場免稅店</strong> — 出境前最後補貨</div>
+      <div class="checklist-item"><div class="check-dot"></div><strong>Naka Weekend Market</strong> — 週六日，手工藝品最多</div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ────────── 注意事項 ────────── -->
+<section class="section bg-alt" id="notice">
+  <div class="section-header">
+    <span class="section-icon">⚠️</span>
+    <h2 class="section-title">旅遊注意事項</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <h3 style="color:var(--teal-bright); margin-bottom:1rem; font-size:1.05rem;">🌤️ 氣候 &amp; 天氣</h3>
+
+  <div class="notice">
+    <span class="notice-icon">☀️</span>
+    <span class="notice-text">4月普吉島為<strong>熱季尾聲</strong>，氣溫約 30-34°C，濕度高。安達曼海東北季風逐漸減弱，海況整體平靜，是潛水最佳時期之一。偶有午後雷陣雨，出門帶折疊雨傘。</span>
+  </div>
+
+  <div class="notice">
+    <span class="notice-icon">🌊</span>
+    <span class="notice-text"><strong>4月海況：</strong>安達曼海浪況平靜，波高通常 0.5-1m。斯米蘭航程（Thaplamu碼頭出發）約1.5小時，暈船者請提前服藥。某些潛點如 Koh Tachai 水流強，需有AOW以上資質。</span>
+  </div>
+
+  <h3 style="color:var(--teal-bright); margin: 1.5rem 0 1rem; font-size:1.05rem;">🍽️ 飲食安全</h3>
+
+  <div class="two-col">
+    <div>
+      <div class="notice">
+        <span class="notice-icon">✅</span>
+        <span class="notice-text">建議<strong>飲用瓶裝水</strong>，避免直接飲用自來水。冰塊在正規餐廳通常安全。泰國食物普遍油辣，腸胃敏感者注意調整辣度（告知「不辣/少辣」: Mai Phet）。</span>
+      </div>
+    </div>
+    <div>
+      <div class="notice">
+        <span class="notice-icon">🦞</span>
+        <span class="notice-text">夜市新鮮海鮮整體安全，但<strong>選熱食、現煮</strong>為主。船宿期間通常提供三餐點心，可在Khao Lak小鎮先買些零食上船（船上加成售價較高）。</span>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="color:var(--teal-bright); margin: 1.5rem 0 1rem; font-size:1.05rem;">🚗 交通</h3>
+
+  <table class="info-table">
+    <thead>
+      <tr><th>路線</th><th>方式</th><th>費用參考</th><th>備註</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>普吉機場 → 芭東海灘</td><td>計程車 / 麵包車 Minivan</td><td>600-800 THB / 150-200 THB共乘</td><td>車程約40分鐘</td></tr>
+      <tr><td>普吉島市區移動</td><td>Grab 叫車（推薦）</td><td>視距離，通常50-200 THB</td><td>比路邊攔車更透明安心</td></tr>
+      <tr><td>芭東 → Thaplamu碼頭</td><td>包車</td><td>800-1200 THB</td><td>前往斯米蘭船宿出發碼頭</td></tr>
+      <tr><td>市區短距離</td><td>嘟嘟車 Tuk-tuk</td><td>50-150 THB</td><td>記得先議價</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="color:var(--teal-bright); margin: 1.5rem 0 1rem; font-size:1.05rem;">💰 金錢 &amp; 小費</h3>
+
+  <div class="notice">
+    <span class="notice-icon">💵</span>
+    <span class="notice-text"><strong>帶美金換匯最划算</strong>（普吉島以美金為主，台幣匯損明顯）。海關規定入境需攜帶 20,000 THB 以上等值現金。</span>
+  </div>
+
+  <h3 style="color:var(--teal-bright); margin: 1.5rem 0 1rem; font-size:1.05rem;">📱 實用資訊</h3>
+
+  <div class="two-col">
+    <div class="checklist-box">
+      <div class="checklist-box-title">📲 APP &amp; 工具</div>
+      <div class="checklist-item"><div class="check-dot"></div><strong>Grab</strong> — 叫車、外送一把罩</div>
+      <div class="checklist-item"><div class="check-dot"></div><strong>Google Maps</strong> — 離線地圖先下載</div>
+      <div class="checklist-item"><div class="check-dot"></div><strong>DivePlanning / Subsurface</strong> — 潛水計劃</div>
+      <div class="checklist-item"><div class="check-dot"></div><strong>XE Currency</strong> — 即時匯率查詢</div>
+      <div class="checklist-item"><div class="check-dot"></div>泰語翻譯：Google翻譯相機掃描超好用</div>
+    </div>
+    <div class="checklist-box">
+      <div class="checklist-box-title">📋 泰國入境規定</div>
+      <div class="checklist-item"><div class="check-dot"></div><strong>TDAC電子入境卡</strong>：入境前3天內填寫</div>
+      <div class="checklist-item"><div class="check-dot"></div>台灣護照免簽入境，可停留 30 天</div>
+      <div class="checklist-item"><div class="check-dot"></div>酒精免稅：1公升以內</div>
+      <div class="checklist-item"><div class="check-dot"></div>香菸免稅：200支以內</div>
+      <div class="checklist-item"><div class="check-dot"></div>空拍機使用需事先向政府申請</div>
+    </div>
+  </div>
+
+  <h3 style="color:var(--teal-bright); margin: 1.5rem 0 1rem; font-size:1.05rem;">🌿 環保 &amp; 尊重</h3>
+
+  <div class="notice">
+    <span class="notice-icon">🐠</span>
+    <span class="notice-text"><strong>海洋友善防曬</strong>：禁用含 Oxybenzone（氧苯酮）成分的化學防曬乳，避免污染海洋。建議使用物理性（氧化鋅/二氧化鈦，非奈米級）防曬。潛水時禁止觸碰珊瑚，禁止帶走任何海洋生物或沙石。</span>
+  </div>
+
+  <div class="notice">
+    <span class="notice-icon">🙏</span>
+    <span class="notice-text">進入寺廟需<strong>穿著遮膝、遮肩服裝</strong>，脫鞋入內。佛像不可拍攝不雅照片。泰國人對王室非常尊重，切勿公開批評。</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p style="font-size:1rem; color:var(--sand); margin-bottom:.4rem;">🤿 祝旅安；祝潛安</p>
+  <p style="font-size:1rem; color:var(--teal-bright); margin-bottom:.8rem;">🐋 高清放流看大物</p>
+  <p>斯米蘭群島開放時間：每年10月中旬至次年5月中旬 ｜ 資料整理參考：<a href="https://www.mingdiving.com/similanislands" target="_blank">日月潛行</a> · <a href="https://bluetrend.media/diving-in-similan-island-thailand/" target="_blank">BlueTrend</a> · <a href="https://snowdiving.tw/similan-islands/" target="_blank">潛雪 SnowDiving</a> · <a href="https://kimiyo.tw/phuket/" target="_blank">喵爸喵媽</a> · <a href="https://visionthai.net/article/must-eat-phuket/" target="_blank">Vision Thai</a></p>
+  <p style="margin-top:.5rem; color: rgba(148,163,184,.6);">2026 普吉島 × 斯米蘭旅遊攻略 · 資料截至 2026年4月</p>
+</footer>
+
+</body>
+</html>
